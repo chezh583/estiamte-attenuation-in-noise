@@ -2,13 +2,13 @@
 
 The attenuation coefficient is defined as:
 
-$$\alpha = \dots \tag{1}$$
+$$\alpha(f) = \frac{\ln [E_i(f)]-\ln[E_j(f)]}{D_{i,j}}$$
 
 OMBs use an accelerometer to measure vertical acceleration. Instrumental noise is
 noticeable at frequencies where wave energy is minimal. The recorded acceleration
 spectrum is:
 
-$$\alpha(f) = \frac{1}{\Delta x} \ln \frac{S_\mathrm{up}(f)}{S_\mathrm{dn}(f)}$$
+$$S_{obs} = S_{true} + e /ge S_{ture}$$
 
 ## 2. Key idea
 
