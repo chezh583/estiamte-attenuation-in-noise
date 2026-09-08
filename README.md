@@ -15,7 +15,7 @@ $$S_{obs} = S_{true} + e \ge S_{ture}$$
 At each (pair, frequency) bin, each of the two buoys is either detected or not.
 That gives four combinations, and three of them carry information.
 
-![Figure 1](figures/regimes.png)
+![Figure 1](figures/schematic1.png)
 
 *Figure 1: The four regimes at one frequency (grey dashed vertical line). Solid lines
 are what the buoy records, faint dashed lines the true spectrum, dotted horizontal
