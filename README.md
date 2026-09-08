@@ -69,8 +69,7 @@ For example, suppose one frequency bin of a deployment yields five pair estimate
 
 The current SOP keeps only the three exact values, giving a median of 1.5.
 
-The NPMLE keeps all five. The support points are the exact values
-$\{1.0, 1.5, 3.0\}$, each starting with mass $1/3$.
+The NPMLE keeps all five, giving a median of 3.0.
 
 - **E-step.** Observation 4 is compatible with 1.5 and 3.0, which currently hold
   equal mass, so its weight is split evenly between them. Observation 5 is
@@ -85,13 +84,6 @@ than 1.5. The difference comes entirely from the two censored pairs that the
 current SOP discards, and these are not a random subset: a pair is censored
 precisely when its downstream spectrum has fallen below the noise floor, which
 tends to happen for the more strongly attenuating pairs.
-
-Because this bin happens to contain only lower bounds, the NPMLE here coincides
-with the Kaplan–Meier estimator, which provides a convenient check. KM on the same
-five points gives $S = 0.80$ at 1.0, $S = 0.53$ at 1.5 and $S = 0$ at 3.0, so the
-median is again 3.0. When upper bounds are also present, the general EM form above
-is required and KM no longer applies.
-
 
 
 ## 4. Real results
