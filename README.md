@@ -34,3 +34,5 @@ that is why the third case, in which the upstream buoy is the blind one, occurs 
 4. **Neither detected.** Both spectra are overstated by unknown amounts, and the
    errors work in opposite directions on the ratio, so little can be said. These
    bins are discarded.
+
+
