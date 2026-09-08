@@ -56,7 +56,41 @@ to how much mass those points currently hold.
 3. M-step. Re-count the total weight at each support point.
 4. Repeat until nothing moves. Take median as 50% mass.
 
-For example,
+For example, suppose one frequency bin of a deployment yields five pair estimates
+(in units of $10^{-5}\ \mathrm{m^{-1}}$):
+
+| # | Type | Value |
+|---|------|-------|
+| 1 | exact | 1.0 |
+| 2 | exact | 1.5 |
+| 3 | exact | 3.0 |
+| 4 | lower bound | $\geq 1.2$ |
+| 5 | lower bound | $\geq 2.0$ |
+
+The current SOP keeps only the three exact values, giving a median of 1.5.
+
+The NPMLE keeps all five. The support points are the exact values
+$\{1.0, 1.5, 3.0\}$, each starting with mass $1/3$.
+
+- **E-step.** Observation 4 is compatible with 1.5 and 3.0, which currently hold
+  equal mass, so its weight is split evenly between them. Observation 5 is
+  compatible only with 3.0 and places all of its weight there.
+- **M-step.** The total weight at each support point is $(1,\ 1.5,\ 2.5)$, which
+  normalises to $(0.20,\ 0.30,\ 0.50)$.
+- **Repeat.** Each subsequent pass shifts a little more weight onto 3.0; the
+  iteration converges to $(0.20,\ 0.27,\ 0.53)$.
+
+The cumulative mass first reaches 50% at 3.0, so the NPMLE median is 3.0 rather
+than 1.5. The difference comes entirely from the two censored pairs that the
+current SOP discards, and these are not a random subset: a pair is censored
+precisely when its downstream spectrum has fallen below the noise floor, which
+tends to happen for the more strongly attenuating pairs.
+
+Because this bin happens to contain only lower bounds, the NPMLE here coincides
+with the Kaplan–Meier estimator, which provides a convenient check. KM on the same
+five points gives $S = 0.80$ at 1.0, $S = 0.53$ at 1.5 and $S = 0$ at 3.0, so the
+median is again 3.0. When upper bounds are also present, the general EM form above
+is required and KM no longer applies.
 
 
 
@@ -64,15 +98,13 @@ For example,
 The figures below are from OMB dataset 2022_DOFI_UIO and 2022_AWI_UTOKYO, respectively. It can 
 be found that rollover can be significantly corrected aftter applying the estimator. It directly
 affects the estimate of slop of the attenuation profile, and thus affect parameterization performance.
-
-![Figure 3](figures/case2.png)
+<img src="figures/case2.png" width="50%">
 
 *Figure 3: 2022_DOFI_UIO*
 
-![Figure 4](figures/case1.png)
+<img src="figures/case1.png" width="50%">
 
 *Figure 4: 2022_AWI_UTOKYO*
-
 
 
 
