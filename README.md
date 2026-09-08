@@ -8,7 +8,7 @@ OMBs use an accelerometer to measure vertical acceleration. Instrumental noise i
 noticeable at frequencies where wave energy is minimal. The recorded acceleration
 spectrum is:
 
-$$S_{obs} = S_{true} + e /ge S_{ture}$$
+$$S_{obs} = S_{true} + e \ge S_{ture}$$
 
 ## 2. Key idea
 
