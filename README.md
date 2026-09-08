@@ -35,4 +35,52 @@ that is why the third case, in which the upstream buoy is the blind one, occurs 
    errors work in opposite directions on the ratio, so little can be said. These
    bins are discarded.
 
+The current SOP of estimating attenuation coeffcient is to use pointwise median value 
+to represent the result for a deploymentj. This actually causes artificial rollover, 
+see example below. 
+
+![Figure 2](figures/schematic2.png)
+
+*Figure 2: 5 attenaution profiles vs. freqeuncy. The dashed lines are part that is noise
+contaminated and discarded from median calculation, while the real attenuation might look
+like these. The red line is the median result, and rollover appears.*
+
+## 3. Fix tool
+The estimator that handles exact, left- and right-censored data simultaneously is the non-
+parametric maximum-likelihood estimator (NPMLE). 
+The algorithm is an EM iteration with a very intuitive reading:
+1. Start with mass spread uniformly over the support points.
+2. E-step. Take each censored observation (lower bound and upper bound cases) and spread its
+weight over all the support points (exact value cases) it is compatible with, in proportion
+to how much mass those points currently hold. 
+3. M-step. Re-count the total weight at each support point.
+4. Repeat until nothing moves. Take median as 50% mass.
+
+For example,
+
+
+
+## 4. Real results
+The figures below are from OMB dataset 2022_DOFI_UIO and 2022_AWI_UTOKYO, respectively. It can 
+be found that rollover can be significantly corrected aftter applying the estimator. It directly
+affects the estimate of slop of the attenuation profile, and thus affect parameterization performance.
+
+![Figure 3](figures/case2.png)
+
+*Figure 3: 2022_DOFI_UIO*
+
+![Figure 4](figures/case1.png)
+
+*Figure 4: 2022_AWI_UTOKYO*
+
+
+
+
+
+
+
+
+
+
+
 
