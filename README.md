@@ -98,6 +98,7 @@ is required and KM no longer applies.
 The figures below are from OMB dataset 2022_DOFI_UIO and 2022_AWI_UTOKYO, respectively. It can 
 be found that rollover can be significantly corrected aftter applying the estimator. It directly
 affects the estimate of slop of the attenuation profile, and thus affect parameterization performance.
+
 <img src="figures/case2.png" width="50%">
 
 *Figure 3: 2022_DOFI_UIO*
