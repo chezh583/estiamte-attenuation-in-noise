@@ -17,6 +17,8 @@ included in this repository.
 import numpy as np
 from predict_noise_floor import NoiseFloorModel
 
+m = NoiseFloorModel()
+
 acc_noise_floor = np.zeros((len(ind_pair), 2))
 
 acc0 = wvsp[ind_pair, 0, :] * (2*np.pi*frq)**4 # wvsp is the elevation spectrum
