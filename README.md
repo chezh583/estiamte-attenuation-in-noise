@@ -27,10 +27,10 @@ that is why the third case, in which the upstream buoy is the blind one, occurs 
 2. **Downstream not detected, upstream detected.** The recorded $S_\mathrm{dn}$ is
    too large (Eq. 2), so the computed $\alpha$ is too small — but by how much we do
    not know. What we do know is that the true $\alpha$ is at least the computed
-   value: $\alpha_\mathrm{true} \geq \hat{\alpha}$ (a *lower bound*).
+   value: $\alpha_\mathrm{true} \geq \alpha_{obs}$ (a *lower bound*).
 3. **Upstream not detected, downstream detected.** Now the recorded
    $S_\mathrm{up}$ is too large, so the computed $\alpha$ is too large:
-   $\alpha_\mathrm{true} \leq \hat{\alpha}$ (an *upper bound*).
+   $\alpha_\mathrm{true} \leq \alpha_{obs}$ (an *upper bound*).
 4. **Neither detected.** Both spectra are overstated by unknown amounts, and the
    errors work in opposite directions on the ratio, so little can be said. These
    bins are discarded.
@@ -88,7 +88,7 @@ tends to happen for the more strongly attenuating pairs.
 
 ## 4. Real cases
 The figures below are from OMB dataset 2022_DOFI_UIO and 2022_AWI_UTOKYO, respectively. It can 
-be found that rollover can be significantly corrected aftter applying the estimator. It directly
+be found that rollover can be significantly corrected after applying the estimator. It directly
 affects the estimate of slop of the attenuation profile, and thus affect parameterization performance.
 
 <img src="figures/case2.png" width="50%">
