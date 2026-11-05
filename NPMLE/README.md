@@ -59,10 +59,8 @@ med = npmle_median(p, q, w)
 | `exact`   | values known exact                    |
 | `lower`   | lower bounds (value is above them)                              |
 | `upper`   | upper bounds (valu                    |
-| `low_end` | lowest possible value: `-np.inf` (default), or `0.0` if the value is always
-positive |
+| `low_end` | lowest possible value: `-np.inf` (default), or `0.0` if the value is always positive |
 
 NaN and inf are dropped automatis are fine.
 
-han half the values c below) the median, the
-  result is NaN, or depends on `low_end`. 
+
