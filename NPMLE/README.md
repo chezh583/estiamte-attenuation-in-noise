@@ -36,19 +36,6 @@ Add up `w` from the left. The median is where the running total reaches 0.5:
   median is the midpoint.
 - If that box reaches −∞ or +∞, the median is NaN (the data can't bound it).
 
-### Example
-
-```
-exact = [1, 2, 4, 5]     lower =n only to be > 3)
-
-boxes   [1,1]  [2,2]  [4,4]  [5,
-w        1/6    1/6    1/3    1/3      <- the two ">3" values went to 4 and 5
-cum      1/6    1/3    2/3    1
-                       ^ reaches 0.5  ->  median = 4
-```
-If you ignored the bounds and took the median of the exact values only, you would
-get 3, which is too low.
-
 ---
 
 ## 2. How to use
@@ -56,7 +43,7 @@ get 3, which is too low.
 ### Basic call
 
 ```python
-from test_turnbell import npmle_fit, npmle_median
+from npmle import npmle_fit, npmle_median
 
 p, q, w = npmle_fit(exact=[1, 2, 4, 5], lower=[3, 3], upper=[])
 med = npmle_median(p, q, w)
@@ -81,7 +68,7 @@ NaN and inf are dropped automatis are fine.
 
 ```python
 import numpy as np
-from test_turnbell import npmle_
+from npmle import npmle_
 
 LOW_END = -np.inf
 
