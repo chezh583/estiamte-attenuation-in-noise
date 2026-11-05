@@ -1,4 +1,4 @@
-NPMLE.py estimates the **median** when some values are known exactly and others are only
+npmle.py estimates the **median** when some values are known exactly and others are only
 known to be above or below a bound.
 
 ---
