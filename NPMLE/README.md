@@ -64,29 +64,5 @@ positive |
 
 NaN and inf are dropped automatis are fine.
 
-### Many bins (columns)
-
-```python
-import numpy as np
-from npmle import npmle_
-
-LOW_END = -np.inf
-
-med = np.full(n_bins, np.nan)
-for j in range(n_bins):
-    if not (is_exact[:, j] | is_j]).any():
-        continue                                  # empty bin -> skip (would crash)
-    p, q, w = npmle_fit(val[is_evalues
-                        lo[is_lower[:, j], j],    # lower bounds
-                        hi[is_upbounds
-                        low_end=LOW_END)
-    med[j] = npmle_median(p, q,
-```
-
-### Remember
-
-- `lower` means the value is **above** the bound, and `upper` means it is
-  **below**. These are easy to s
-- A bin with no data crashes `npmle_fit`, so skip it first.
-- If more than half the values c below) the median, the
+han half the values c below) the median, the
   result is NaN, or depends on `low_end`. 
